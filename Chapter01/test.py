@@ -1,6 +1,8 @@
 import unittest
 from isUnique import isUnique
 from checkPermutation import checkPermutation
+from URLify import urlLyfy
+from palindromePermutation import palindromePermutation
 #664 pdf hints
 #101 problems
 #abcda badc
@@ -34,12 +36,7 @@ class TestCheckPermutation(unittest.TestCase):
     PAIRFIVE = ("a", "a")
     PAIRSIX = ("b", "a")
     PAIRSEVEN = ("kkkkk", "kkkkk" )
-# abcdef, abcdef -> true
-# aaaabb, bbaaaa -> true
-# abcde, bcdef -> false
-# a, a -> true
-# b,a -> false
-# kkkkk, kkkk -> false
+
     def test_checkPermutation(self):
         self.assertTrue(checkPermutation(self.PAIRONE))
         self.assertFalse(checkPermutation(self.PAIRTWO))
@@ -48,3 +45,70 @@ class TestCheckPermutation(unittest.TestCase):
         self.assertTrue(checkPermutation(self.PAIRFIVE))
         self.assertFalse(checkPermutation(self.PAIRSIX))
         self.assertTrue(checkPermutation(self.PAIRSEVEN))
+
+
+
+# "Good for you  ", 14 -> "Good%20for%20you"
+# "   Hello world ", 15 ->"Hello%20world"
+# "asdfh fghfg fghf asdsd  ", 24 -> "asdfh%20fghfg%20fghf%20asdsd"
+# "Emmanuel" , 8 -> "Emmanuel"      
+# "Mexico Loose", 12 -> "Mexico%20Loose"  
+# "PlayStation vs Xbox" , 19 -> "PlayStation%20vs%20Xbox"  
+
+class TestURLify(unittest.TestCase):
+    word_list = ["Good for you  ",
+                "   Hello world ", 
+                "asdfh fghfg fghf asdsd  ",
+                "Emmanuel",
+                "Mexico Loose",
+                "PlayStation vs Xbox"  ]
+    length_list = [12,11,22,8,12,19 ]
+    res_list = ["Good%20for%20you", 
+                "Hello%20world",
+                "asdfh%20fghfg%20fghf%20asdsd",
+                "Emmanuel",
+                "Mexico%20Loose",
+                "PlayStation%20vs%20Xbox"]
+
+    def test_urlLify(self):
+        for i in range(6):
+            self.assertEqual(self.res_list[i],urlLyfy(self.word_list[i], self.length_list[i]))
+
+class TestPalindromePermutation(unittest.TestCase):
+    list_words = [
+        "Dont nod",
+        "Evil olive",
+        "Tact Coa",
+        "Amore Roma",
+        "Borrow or rob",
+        "Draw O coward",
+        "Wont lovers revolt now",
+        "Stella won no wallets",
+        "coat suit",
+        "remember the time",
+        "man in the mirror",
+        "smooth criminal",
+        "billie jean",
+        "thriller",
+        
+    ]
+    
+    def test_palindrome_permutation(self):
+        for i in range(8):
+            self.assertTrue(palindromePermutation(self.list_words[i]))
+        for i in range(8, 14):
+            self.assertFalse(palindromePermutation(self.list_words[i]))
+
+
+# Dont nod
+# Evil olive
+# Tact Coa
+# Amore Roma
+# Borrow or rob
+# Draw O coward
+# coat suit
+# remember the time
+# man in the mirror
+# smooth criminal
+# billie jean
+# thriller
