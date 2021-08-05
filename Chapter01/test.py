@@ -1,5 +1,10 @@
 import unittest
 from isUnique import isUnique
+from checkPermutation import checkPermutation
+#664 pdf hints
+#101 problems
+#abcda badc
+#https://dzone.com/articles/vs-code-setup-for-python-development-and-testing
 class TestIsUnique(unittest.TestCase):
     PALABRA1 = "abcde"        # unique
     PALABRA2 = "palabra"      # no unique
@@ -20,3 +25,26 @@ class TestIsUnique(unittest.TestCase):
         self.assertFalse(isUnique(self.PALABRA2))
         self.assertFalse(isUnique(self.PALABRA3))
         self.assertFalse(isUnique(self.PALABRA6))
+
+class TestCheckPermutation(unittest.TestCase):
+    PAIRONE = ("abc", "cba") #permutatino
+    PAIRTWO = ("ab", "cd")
+    PAIRTHREE = ("abcdef", "abcdef")
+    PAIRFOUR = ("aaaabb", "bbaaaa")
+    PAIRFIVE = ("a", "a")
+    PAIRSIX = ("b", "a")
+    PAIRSEVEN = ("kkkkk", "kkkkk" )
+# abcdef, abcdef -> true
+# aaaabb, bbaaaa -> true
+# abcde, bcdef -> false
+# a, a -> true
+# b,a -> false
+# kkkkk, kkkk -> false
+    def test_checkPermutation(self):
+        self.assertTrue(checkPermutation(self.PAIRONE))
+        self.assertFalse(checkPermutation(self.PAIRTWO))
+        self.assertTrue(checkPermutation(self.PAIRTHREE))
+        self.assertTrue(checkPermutation(self.PAIRFOUR))
+        self.assertTrue(checkPermutation(self.PAIRFIVE))
+        self.assertFalse(checkPermutation(self.PAIRSIX))
+        self.assertTrue(checkPermutation(self.PAIRSEVEN))
