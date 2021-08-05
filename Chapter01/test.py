@@ -7,6 +7,7 @@ from palindromePermutation import palindromePermutation
 #101 problems
 #abcda badc
 #https://dzone.com/articles/vs-code-setup-for-python-development-and-testing
+
 class TestIsUnique(unittest.TestCase):
     PALABRA1 = "abcde"        # unique
     PALABRA2 = "palabra"      # no unique
@@ -112,3 +113,4 @@ class TestPalindromePermutation(unittest.TestCase):
 # smooth criminal
 # billie jean
 # thriller
+
