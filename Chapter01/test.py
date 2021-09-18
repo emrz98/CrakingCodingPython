@@ -3,6 +3,8 @@ from isUnique import isUnique
 from checkPermutation import checkPermutation
 from URLify import urlLyfy
 from palindromePermutation import palindromePermutation
+from one_away import one_away
+
 #664 pdf hints
 #101 problems
 #abcda badc
@@ -100,6 +102,55 @@ class TestPalindromePermutation(unittest.TestCase):
         for i in range(8, 14):
             self.assertFalse(palindromePermutation(self.list_words[i]))
 
+
+class TestOneWay(unittest.TestCase):
+
+    test = [
+        {
+            "str1" : "pale",
+            "str2" : "ple",
+            "result" : True
+        },
+        {
+            "str1" : "pales",
+            "str2" : "pale",
+            "result" : True
+        },
+        {
+            "str1" : "pale",
+            "str2" : "bale",
+            "result" : True
+        },
+        {
+            "str1" : "pale",
+            "str2" : "bake",
+            "result" : False
+        },
+        {
+            "str1" : "barco",
+            "str2" : "arco",
+            "result" : True
+        },
+        {
+            "str1" : "sano",
+            "str2" : "sapo",
+            "result" : True
+        },
+        {
+            "str1" : "nepe",
+            "str2" : "pepe",
+            "result" : True
+        },
+        {
+            "str1" : "perro",
+            "str2" : "pera",
+            "result" : False
+        },
+    ]
+
+    def test_one_way(self):
+        for obj in self.test:
+            self.assertEqual(obj["result"], one_away(obj["str1"], obj["str2"]))
 
 # Dont nod
 # Evil olive
