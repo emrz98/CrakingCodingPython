@@ -155,13 +155,22 @@ class TestOneWay(unittest.TestCase):
 
 class TestStringCompression(unittest.TestCase):
     list_word = [
-        "aabcccccaaa"
+        "aabcccccaaa",
+        "rrrfghtj",
+        "rrrgggtttthhhha",
+        "aaggtthh",
+        "gggaarrhh"
     ]
     list_answer = [
-        "a2blc5a3"
+        "a2b1c5a3",
+        "rrrfghtj",
+        "r3g3t4h4a1",
+        "aaggtthh",
+        "g3a2r2h2"
     ]
     def test_string_compression(self):
-        self.assertEqual(self.list_answer[0], string_compression(self.list_word[0]))
+        for i in range(len(self.list_word)):
+            self.assertEqual(self.list_answer[i], string_compression(self.list_word[i]))
         
 # Dont nod
 # Evil olive
