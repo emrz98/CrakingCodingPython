@@ -4,6 +4,7 @@ from checkPermutation import checkPermutation
 from URLify import urlLyfy
 from palindromePermutation import palindromePermutation
 from one_away import one_away
+
 #664 pdf hints
 #101 problems
 #abcda badc
@@ -101,6 +102,7 @@ class TestPalindromePermutation(unittest.TestCase):
         for i in range(8, 14):
             self.assertFalse(palindromePermutation(self.list_words[i]))
 
+
 class TestOneWay(unittest.TestCase):
 
     test = [
@@ -149,3 +151,17 @@ class TestOneWay(unittest.TestCase):
     def test_one_way(self):
         for obj in self.test:
             self.assertEqual(obj["result"], one_away(obj["str1"], obj["str2"]))
+
+# Dont nod
+# Evil olive
+# Tact Coa
+# Amore Roma
+# Borrow or rob
+# Draw O coward
+# coat suit
+# remember the time
+# man in the mirror
+# smooth criminal
+# billie jean
+# thriller
+
