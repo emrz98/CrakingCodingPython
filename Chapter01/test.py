@@ -4,6 +4,7 @@ from checkPermutation import checkPermutation
 from URLify import urlLyfy
 from palindromePermutation import palindromePermutation
 from one_away import one_away
+from stringCompression import string_compression
 
 #664 pdf hints
 #101 problems
@@ -152,6 +153,16 @@ class TestOneWay(unittest.TestCase):
         for obj in self.test:
             self.assertEqual(obj["result"], one_away(obj["str1"], obj["str2"]))
 
+class TestStringCompression(unittest.TestCase):
+    list_word = [
+        "aabcccccaaa"
+    ]
+    list_answer = [
+        "a2blc5a3"
+    ]
+    def test_string_compression(self):
+        self.assertEqual(self.list_answer[0], string_compression(self.list_word[0]))
+        
 # Dont nod
 # Evil olive
 # Tact Coa
