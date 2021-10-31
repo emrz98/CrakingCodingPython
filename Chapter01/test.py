@@ -1,6 +1,6 @@
 import unittest
 
-from Chapter01.Rotate_Matrix import rotate_matrix
+from Chapter01.Rotate_Matrix import rotate_matrix, rotate_matrix_n2
 from isUnique import isUnique
 from checkPermutation import checkPermutation
 from URLify import urlLyfy
@@ -187,10 +187,10 @@ class TestRotateMatrix(unittest.TestCase):
     ]
 
     ans1 = [
-        [0, 0, 0, 1],
-        [0, 0, 0, 1],
-        [0, 0, 0, 1],
-        [1, 1, 1, 1]
+        [1, 1, 1, 1],
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 0, 0, 0]
     ]
 
     param2 = [
@@ -202,11 +202,11 @@ class TestRotateMatrix(unittest.TestCase):
     ]
 
     ans2 = [
-        [0, 0, 1, 1, 1],
-        [0, 1, 0, 1, 1],
-        [1, 0, 0, 1, 1],
-        [0, 1, 0, 1, 1],
-        [0, 0, 1, 1, 1]
+        [1, 1, 1, 0, 0],
+        [1, 1, 0, 1, 0],
+        [1, 1, 0, 0, 1],
+        [1, 1, 0, 1, 0],
+        [1, 1, 1, 0, 0]
     ]
 
     def test_rotate_matrix01(self):
@@ -214,3 +214,9 @@ class TestRotateMatrix(unittest.TestCase):
 
     def test_rotate_matrix02(self):
         self.assertEqual(self.ans2, rotate_matrix(self.param2))
+
+    def test_rotate_matrix01_n2(self):
+        self.assertEqual(self.ans1, rotate_matrix_n2(self.param1))
+
+    def test_rotate_matrix02_n2(self):
+        self.assertEqual(self.ans2, rotate_matrix_n2(self.param2))
