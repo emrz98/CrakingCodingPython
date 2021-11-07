@@ -1,6 +1,7 @@
 import unittest
 
 from Chapter01.Rotate_Matrix import rotate_matrix, rotate_matrix_n2
+from Chapter01.Zero_Matrix import make_matrix_zero
 from isUnique import isUnique
 from checkPermutation import checkPermutation
 from URLify import urlLyfy
@@ -220,3 +221,83 @@ class TestRotateMatrix(unittest.TestCase):
 
     def test_rotate_matrix02_n2(self):
         self.assertEqual(self.ans2, rotate_matrix_n2(self.param2))
+
+class TestZeroMatrix(unittest.TestCase):
+    param1 = [
+    [ 1, 2, 3, 4, 5, 6],
+    [ 7, 8, 9,10,11,12],
+    [13,14,15,16,17,18],
+    [19,20,21,22,23,24],
+    [25,26,27,28,29,30],
+    [31,32,33,34,35,36]
+]
+
+    ans1 = [
+    [ 1, 2, 3, 4, 5, 6],
+    [ 7, 8, 9,10,11,12],
+    [13,14,15,16,17,18],
+    [19,20,21,22,23,24],
+    [25,26,27,28,29,30],
+    [31,32,33,34,35,36]
+]
+
+
+    param2 = [
+    [ 1, 2, 3, 4, 5, 6],
+    [ 7, 8, 9,10,11,12],
+    [13, 0,15,16,17,18],
+    [19,20,21,22,23,24],
+    [25,26,27,28,29,30],
+    [31,32,33,34,35,36]
+]
+
+    ans2 = [
+    [ 1, 0, 3, 4, 5, 6],
+    [ 7, 0, 9,10,11,12],
+    [ 0, 0, 0, 0, 0, 0],
+    [19, 0,21,22,23,24],
+    [25, 0,27,28,29,30],
+    [31, 0,33,34,35,36]
+]
+
+    param3 = [
+    [ 0, 2, 3, 4, 5, 6],
+    [ 7, 8, 9,10,11,12],
+    [13,14,15,16,17,18],
+    [19,20,21,22,23,24],
+    [25,26,27,28,29,30],
+    [31,32,33,34,35, 0]
+]
+    ans3 = [
+    [ 0, 0, 0, 0, 0, 0],
+    [ 0, 8, 9,10,11, 0],
+    [ 0,14,15,16,17, 0],
+    [ 0,20,21,22,23, 0],
+    [ 0,26,27,28,29, 0],
+    [ 0, 0, 0, 0, 0, 0]
+]
+
+    param4 = [
+    [ 1, 2, 3 ,4],
+    [ 5, 0, 7, 8],
+    [ 9,10,11,12],
+    [13, 0,15,16]
+]
+    ans4 = [
+    [ 1, 0, 3 ,4],
+    [ 0, 0, 0, 0],
+    [ 9, 0,11,12],
+    [ 0, 0, 0, 0]
+]
+
+    def test_zero_matrix01(self):
+        self.assertEqual(self.ans1, make_matrix_zero(self.param1))
+
+    def test_zero_matrix02(self):
+        self.assertEqual(self.ans2, make_matrix_zero(self.param2))
+
+    def test_zero_matrix03(self):
+        self.assertEqual(self.ans3, make_matrix_zero(self.param3))
+
+    def test_zero_matrix04(self):
+        self.assertEqual(self.ans3, make_matrix_zero(self.param3))
