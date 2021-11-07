@@ -2,18 +2,19 @@ import unittest
 
 from Chapter01.Rotate_Matrix import rotate_matrix, rotate_matrix_n2
 from Chapter01.Zero_Matrix import make_matrix_zero
-from isUnique import isUnique
-from checkPermutation import checkPermutation
-from URLify import urlLyfy
-from palindromePermutation import palindromePermutation
-from one_away import one_away
-from stringCompression import string_compression
-
+from .isUnique import isUnique
+from .checkPermutation import checkPermutation
+from .URLify import urlLyfy
+from .palindromePermutation import palindromePermutation
+from .one_away import one_away
+from .stringCompression import string_compression
+from .string_rotation import string_rotation
 
 # 664 pdf hints
 # 101 problems
 # abcda badc
 # https://dzone.com/articles/vs-code-setup-for-python-development-and-testing
+
 
 class TestIsUnique(unittest.TestCase):
     PALABRA1 = "abcde"  # unique
@@ -301,3 +302,21 @@ class TestZeroMatrix(unittest.TestCase):
 
     def test_zero_matrix04(self):
         self.assertEqual(self.ans3, make_matrix_zero(self.param3))
+
+
+class TestStringRotation(unittest.TestCase):
+    tuple_test = (
+        ("waterbottle", "erbottlewat"),
+        ("holamundo", "mundohola"),
+        ("asdfasdf", "sdfasdfa"),
+        ("emrz98@gmail.com", ".comemrz98@gmail"),
+        ("asdfasdfhhg", "wwertwrtwertwert"),
+        ("emmmanuel", "maunelemm")
+    )
+
+    def test_string_rotation(self):
+        for i in self.tuple_test[0:4]:
+            self.assertTrue(string_rotation(i[0], i[1]))
+
+        for i in self.tuple_test[4:]:
+            self.assertFalse(string_rotation(i[0], i[1]))
